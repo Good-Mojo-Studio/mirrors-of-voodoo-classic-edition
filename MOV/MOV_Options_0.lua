@@ -50,9 +50,10 @@ end)
 -- Events Time --
 local function EventsTime(self, event, arg1, arg2, arg3, arg4)
 	if event == "PLAYER_LOGIN" then
-		self:SetParent(InterfaceOptionsFrame)
-		self.name = "Mirrors of |cff9370D8Voodoo|r!"
-		InterfaceOptions_AddCategory(self)
+		local category = Settings.RegisterCanvasLayoutCategory(self, "MOV")
+		category:SetName(C_AddOns.GetAddOnMetadata("MOV", "Title"))
+		Settings.RegisterAddOnCategory(category)
 	end
 end
 movOptions0:SetScript("OnEvent", EventsTime)
+
